@@ -1,18 +1,18 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
+        String s = br.readLine();
+        int k = s.length();
+        int n = Integer.parseInt(s);
 
         int result = 0;
 
-        for(int i = 0; i<N; i++){
+        for(int i = ( n - 9 * k); i<n; i++){
             int number = i;
             int sum = 0;
 
@@ -21,7 +21,7 @@ public class Main {
                 number /= 10;
             }
 
-            if(sum + i == N){
+            if(sum + i == n){
                 result = i;
                 break;
             }
