@@ -1,28 +1,25 @@
-import java.util.*;
-
 class Solution {
     public int solution(String[] babbling) {
 
-        int answer = 0; // babbling 중 발음 가능한 단어 개수
-        
-        for(int i=0; i<babbling.length; i++){
-            // 연속발음될 경우 예외처리 
-            if(babbling[i].contains("ayaaya") 
-               || babbling[i].contains("yeye") 
-               || babbling[i].contains("woowoo")
-               || babbling[i].contains("mama")){
+        int answer = 0;
+
+        for (String s : babbling) {
+            if (s.contains("ayaaya") ||
+                    s.contains("yeye") ||
+                    s.contains("woowoo") ||
+                    s.contains("mama")
+            ) {
                 continue;
             }
-            
-            babbling[i] = babbling[i].replace("aya", " ");
-            babbling[i] = babbling[i].replace("ye", " ");
-            babbling[i] = babbling[i].replace("woo", " ");
-            babbling[i] = babbling[i].replace("ma", " ");
-            babbling[i] = babbling[i].replace(" ", "");
 
-            if(babbling[i].length()  == 0) answer++;
+            s = s.replaceAll("aya", " ");
+            s = s.replaceAll("ye", " ");
+            s = s.replaceAll("woo", " ");
+            s = s.replaceAll("ma", " ");
+
+            if (s.trim().length() == 0) answer++;
         }
-        
+
         return answer;
     }
 }
